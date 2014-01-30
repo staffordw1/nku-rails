@@ -1,0 +1,18 @@
+<p>
+  <strong>Name:</strong>
+  <%= @student.name %>
+</p>
+ 
+<p>
+  <strong>Nickname:</strong>
+  <%= @student.nickname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @student.email %>
+</p>
+
+<p>
+  <%= image_tag(@student.url, :alt => @student.name) %>
+</p>

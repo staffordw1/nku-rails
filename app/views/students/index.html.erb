@@ -1,0 +1,12 @@
+<h1>Students</h1>
+<%= link_to "New", new_student_path %>
+<table>
+ 
+<% @students.each do |student| %>
+  <tr><td><%= student.name %></td></tr>
+  <tr><td><%= student.nickname %></td></tr>
+  <tr><td><%= student.email %></td></tr>
+  <tr><td><%= image_tag(student.url, :alt => student.name) %></td></tr>
+  <tr><td><%= link_to 'Delete', student_path(student), method: :delete, data: { confirm: 'Are you sure?' } %></td></tr>
+<% end %>
+</table>
