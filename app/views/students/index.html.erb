@@ -1,3 +1,6 @@
+<% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+<% end -%>
 <h1>Students</h1>
 <%= link_to "New", new_student_path %>
 <table>
@@ -7,7 +10,8 @@
   <tr><td><strong>Name:</strong></td><td><%= student.name %></td></tr>
   <tr><td><strong>Nickname:</strong></td><td><%= student.nickname %></td></tr>
   <tr><td><strong>Email:</strong></td><td><%= student.email %></td></tr>
-  <tr><td><%= image_tag(student.url, :alt => student.name) %></td></tr>
+  <tr><td><%= image_tag(student.gravatar_url, :alt => student.name) %></td></tr>
   <tr><td><%= link_to 'Delete', student_path(student), method: :delete, data: { confirm: 'Are you sure?' } %></td></tr>
+  <tr><td><%= link_to 'Edit Profile', edit_student_path(student) %></td></tr>
 <% end %>
 </table>

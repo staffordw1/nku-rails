@@ -8,7 +8,8 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
  
     if @student.save
-      redirect_to @student
+      flash[:notice] = "Your profile has been added!"
+      redirect_to students_path
     else
       render 'new'
     end
@@ -18,7 +19,7 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
   
-    def index
+  def index
       @students = Student.all
   end
   
@@ -30,7 +31,8 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     
     if @student.update(student_params)
-      redirect_to @student
+      flash[:notice] = "Your profile has been updated!"
+      redirect_to students_path
     else
       render 'edit'
     end

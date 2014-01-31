@@ -1,5 +1,4 @@
-<h1>Create New Student</h1>
-<%= form_for :student, url: new_student_path do |f| %>
+<%= form_for :student, notice: "You have been added to the list!", url: students_path do |f| %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
