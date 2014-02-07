@@ -1,3 +1,4 @@
+<% if current_student.id == @student.id %>
 <h1>Edit Profile</h1>
 <%= form_for :student, url: student_path, method: :patch do |f| %>
   <p>
@@ -20,7 +21,19 @@
     <%= f.text_area :url %>
   </p>
   <p>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </p>
+
+  <p>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
     <%= f.submit %>
   </p>
 <% end %>
 <%= link_to 'Back', students_path %>
+<% else %>
+<h3>You do not have permission to edit another person's profile.</h3>
+<% end %>

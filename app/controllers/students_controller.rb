@@ -1,17 +1,15 @@
 class StudentsController < ApplicationController
-  
   def new
     @student = Student.new
   end
   
   def create
     @student = Student.new(student_params)
- 
     if @student.save
-      flash[:notice] = "Your profile has been added!"
-      redirect_to students_path
+      redirect_to students_path, :notice => "Signed up!"
     else
-      render 'new'
+      flash[:error] = "Rejected."
+      render "new"
     end
   end
   
@@ -29,12 +27,11 @@ class StudentsController < ApplicationController
   
   def update
     @student = Student.find(params[:id])
-    
     if @student.update(student_params)
-      flash[:notice] = "Your profile has been updated!"
-      redirect_to students_path
+       flash[:notice] = "Your profile has been updated!"
+       redirect_to students_path
     else
-      render 'edit'
+       render 'edit'
     end
   end
   
@@ -47,6 +44,6 @@ class StudentsController < ApplicationController
   
   private
   def student_params
-    params.require(:student).permit(:name, :nickname, :email, :url)
+    params.require(:student).permit(:name, :nickname, :email, :image_url, :password, :password_confirmation)
   end
 end
