@@ -13,8 +13,16 @@ class SessionsController < ApplicationController
     end
   end
   
+  def index
+      @students = Student.all
+  end
+  
+  def show
+    student = Student.find_by_email(params[:email])
+  end
+  
   def destroy
     session[:student_id] = nil
-    redirect_to root_url, :notice => "Logged out!"
+    redirect_to students_path, :notice => "Logged out!"
   end
 end

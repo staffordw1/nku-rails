@@ -6,7 +6,8 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     if @student.save
-      redirect_to students_path, :notice => "Signed up!"
+      session[:student_id] = @student.id
+      redirect_to students_path
     else
       flash[:error] = "Rejected."
       render "new"
@@ -37,9 +38,9 @@ class StudentsController < ApplicationController
   
   def destroy
     @student = Student.find(params[:id])
+
     @student.destroy
-    
-    redirect_to students_path
+    redirect_to session_path, method: :delete
   end
   
   private
