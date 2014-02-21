@@ -7,11 +7,11 @@ class Student < ActiveRecord::Base
   
   has_many :attendances
   
-  def in_seat(seat, attended_on)
-    
+  def self.in_seat(seat, date)
+    Student.joins(:attendances).where(attendances: {seat: seat, attended_on: date})
   end
-  
-  def absent(attended_on)
-    
+
+  def self.absent(date)
+    Student.joins(:attendances).where.not(attendances: {attended_on: date})
   end
 end
