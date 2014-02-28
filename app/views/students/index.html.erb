@@ -30,6 +30,26 @@
   <% @displayDate = params[:attended_on] %>
 <% end %>
 
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Status', 'Number of Students'],
+          ['Present',     <%= Student.present(@displayDate).distinct.count %>],
+          ['Absent',      <%= Student.absent(@displayDate).distinct.count %>]
+        ]);
+           
+        var options = {
+          title: 'Attendances'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
+<div id="piechart" style="width: 900px; height: 500px;"></div>
 <table>
  <tr>
     <% @seatOne = Student.in_seat(1, @displayDate) %>
