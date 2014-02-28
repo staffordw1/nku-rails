@@ -37,8 +37,8 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Status', 'Number of Students'],
-          ['Present',     <%= Student.present(@displayDate).distinct.count %>],
-          ['Absent',      <%= Student.absent(@displayDate).distinct.count %>]
+          ['Present',     <%= Student.present(@displayDate).distinct.size %>],
+          ['Absent',      <%= Student.absent(@displayDate).distinct.size %>]
         ]);
            
         var options = {
