@@ -4,7 +4,11 @@ class AttendancesController < ApplicationController
   end
   
   def index
-    @attendances = Attendance.all
+    if params[:id].present?
+      @attendances = Student.find(params[:id]).attendances
+    else
+      @attendances = Attendance.all
+    end
   end
   
   def create

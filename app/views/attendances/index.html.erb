@@ -9,11 +9,10 @@
 <br/>
 <% end %>
 <table>
- 
 <% @attendances.each do |attendance| %>
-  <tr><td><br/></td></tr>
-  <tr><td><strong>Student: </strong></td><td><%= attendance.student.try(:name) %></td></tr>
-  <tr><td><strong>Attended On: </strong></td><td><%= attendance.attended_on %></td></tr>
-  <tr><td><strong>Seat: </strong></td><td><%= attendance.seat %></td></tr>
+    <tr><td><br/></td></tr>
+  <tr><td><strong>Student: </strong></td><td><%= link_to attendance.student.try(:name), attendances_path(:id => attendance.student_id) %></td></tr>
+    <tr><td><strong>Attended On: </strong></td><td><%= attendance.attended_on %></td></tr>
+    <tr><td><strong>Seat: </strong></td><td><%= attendance.seat %></td></tr>
 <% end %>
 </table>
