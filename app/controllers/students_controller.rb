@@ -19,8 +19,11 @@ class StudentsController < ApplicationController
   end
   
   def index
-    
-      @students = Student.all
+    if (current_student == nil)
+      redirect_to new_session_path
+    end
+   
+    @students = Student.all
   end
   
   def edit
