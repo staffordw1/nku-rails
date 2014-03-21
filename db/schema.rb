@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140321195722) do
-=======
-ActiveRecord::Schema.define(version: 20140321201029) do
 
   create_table "attendances", force: true do |t|
     t.date     "attended_on"
@@ -23,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140321201029) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
->>>>>>> pie-chart
+
 
   create_table "comments", force: true do |t|
     t.string   "commenter"
@@ -48,15 +45,8 @@ ActiveRecord::Schema.define(version: 20140321201029) do
     t.string   "email"
     t.string   "image_url"
     t.string   "password_digest"
-<<<<<<< HEAD
-    t.string   "admin"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-=======
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.boolean  "admin"
->>>>>>> pie-chart
+
   end
 
 end
