@@ -32,28 +32,24 @@
 
 <table>
  <tr>
-    <% @seatOne = Student.in_seat(1, @displayDate) %>
-      <% @seatOne.each do |student1| %>
+      <% Student.in_seat(1, @displayDate).each do |student1| %>
         <td><strong>Seat 1</strong><br/>
         <%= image_tag(student1.gravatar_url :default => student1.image_url) %><br/>
         <%= student1.nickname %></td>
         <% end %>
-    <% @seatThree = Student.in_seat(3, @displayDate) %>
-      <% @seatThree.each do |student3| %>
+      <% Student.in_seat(3, @displayDate).each do |student3| %>
         <td><strong>Seat 3</strong><br/>
         <%= image_tag(student3.gravatar_url :default => student3.image_url) %><br/>
         <%= student3.nickname %></td>
         <% end %>
       </tr>
       <tr>
-    <% @seatTwo = Student.in_seat(2, @displayDate) %>
-      <% @seatTwo.each do |student2| %>
+      <% Student.in_seat(2, @displayDate).each do |student2| %>
         <td><strong>Seat 2</strong><br/>
         <%= image_tag(student2.gravatar_url :default => student2.image_url) %><br/>
         <%= student2.nickname %></td>
         <% end %>
-        <% @seatFour = Student.in_seat(4, @displayDate) %>
-          <% @seatFour.each do |student4| %>
+          <% Student.in_seat(4, @displayDate).each do |student4| %>
             <td><strong>Seat 4</strong><br/>
         <%= image_tag(student4.gravatar_url :default => student4.image_url) %><br/>
         <%= student1.nickname %></td>

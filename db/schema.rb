@@ -11,20 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213182557) do
-
-  create_table "attendances", force: true do |t|
-    t.date     "attended_on"
-    t.integer  "seat"
-    t.integer  "student_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "attendences", force: true do |t|
-    t.string "in_seat"
-    t.date   "absent"
-  end
+ActiveRecord::Schema.define(version: 20140321195722) do
 
   create_table "comments", force: true do |t|
     t.string   "commenter"
@@ -45,13 +32,13 @@ ActiveRecord::Schema.define(version: 20140213182557) do
 
   create_table "students", force: true do |t|
     t.string   "name"
-    t.text     "nickname"
-    t.text     "email"
-    t.text     "url"
+    t.string   "nickname"
+    t.string   "email"
+    t.string   "image_url"
+    t.string   "password_digest"
+    t.string   "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
-    t.string   "image_url"
   end
 
 end
